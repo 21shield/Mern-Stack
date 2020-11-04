@@ -12,6 +12,8 @@ app.get('/', (req, res) => {
 });
 // run server for backend node >filename<
 // the port chosed to be the traffic input
+//  ^^ app.listen(5000)
 
+const PORT = process.env.PORT || 5000
 app.listen(5000)
 
