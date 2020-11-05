@@ -1,6 +1,7 @@
 require("./models/User");
 require("./services/passport");
-
+const cookieSession = require("cookoe-session");
+const passport = require("passport");
 const mongoose = require("mongoose");
 const express = require("express");
 const keys = require("./config/keys");
@@ -26,6 +27,15 @@ mongoose.connect(keys.mongoURI);
 // run server for backend node >filename<
 // the port chosed to be the traffic input
 //  ^^ app.listen(5000)
+
+app.use(
+  cookieSession({
+    // how long this cookie can last in a browser
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+    // signs or encrypts info
+    keys: [],
+  })
+);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
