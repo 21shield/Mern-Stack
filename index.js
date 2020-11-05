@@ -1,13 +1,16 @@
 require("./services/passport");
+require("./models/User");
 
+const mongoose = require("mongoose");
 const express = require("express");
-// console.log(express)
+const keys = require("./config/keys");
 const app = express();
 const authRoutes = require("./routes/authRoutes");
+
 // in javascript this calls the route funciton and invokes it with app as an argumen
 // or require('.routes/authRoutes')(app)
 authRoutes(app);
-
+mongoose.connect(keys.mongoURI);
 // creates a new instance of googleStrategy
 // this can now be used for the user
 
