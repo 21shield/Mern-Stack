@@ -3,6 +3,11 @@ require("./services/passport");
 const express = require("express");
 // console.log(express)
 const app = express();
+const authRoutes = require("./routes/authRoutes");
+// in javascript this calls the route funciton and invokes it with app as an argumen
+// or require('.routes/authRoutes')(app)
+authRoutes(app);
+
 // creates a new instance of googleStrategy
 // this can now be used for the user
 
