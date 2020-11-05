@@ -1,5 +1,5 @@
-require("./services/passport");
 require("./models/User");
+require("./services/passport");
 
 const mongoose = require("mongoose");
 const express = require("express");
