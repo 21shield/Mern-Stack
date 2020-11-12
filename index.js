@@ -11,7 +11,10 @@ const authRoutes = require("./routes/authRoutes");
 // in javascript this calls the route funciton and invokes it with app as an argumen
 // or require('.routes/authRoutes')(app)
 authRoutes(app);
-mongoose.connect(keys.mongoURI);
+mongoose.connect(keys.mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 // creates a new instance of googleStrategy
 // this can now be used for the user
 
